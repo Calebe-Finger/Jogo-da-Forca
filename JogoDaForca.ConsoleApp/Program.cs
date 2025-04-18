@@ -2,7 +2,7 @@
 {
     internal class Program
     {
-        //Versão 2: Exibir palavra oculta com traços
+        //Versão 3: Verifivação das entradas do usuário
 
         static void Main(string[] args)
         {
@@ -18,16 +18,37 @@
                     letrasEncontradas[i] = '_';
                 }
 
-                string dicaDaPalavra = String.Join(" ", letrasEncontradas);
+                int quantidadeErros = 0;
+                bool jogadorEnforcou = false;
+                bool jogadorAcertou = false;
 
-                Console.Clear();
-                Console.WriteLine("--------------------------------");
-                Console.WriteLine("Jogo da Forca");
-                Console.WriteLine("--------------------------------");
-                Console.WriteLine("Palavra Secreta: " + dicaDaPalavra);
+                do
+                {
+                    string dicaDaPalavra = String.Join(" ", letrasEncontradas);
 
-                Console.Write("Digite uma letra: ");
-                char chute = Console.ReadLine()[0];        //Obtém apenas um caractere do que o usuário digita
+                    Console.Clear();
+                    Console.WriteLine("--------------------------------");
+                    Console.WriteLine("Jogo da Forca");
+                    Console.WriteLine("--------------------------------");
+                    Console.WriteLine("Palavra Secreta: " + dicaDaPalavra);
+
+                    Console.Write("Digite uma letra: ");
+                    char chute = Console.ReadLine()[0];        //Obtém apenas um caractere do que o usuário digita
+
+                    for (int i = 0; i < palavraSecreta.Length; i++)
+                    {
+                        char letraAtual = palavraSecreta[i];
+
+                        if (chute == letraAtual)
+                            letrasEncontradas[i] = letraAtual;
+                    }
+
+                    Console.ReadLine();
+
+                }
+                while (jogadorAcertou == false || jogadorEnforcou == false);        // || = OU
+
+
             }
         }
     }
