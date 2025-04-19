@@ -2,7 +2,7 @@
 {
     internal class Program
     {
-        //Versão 4: Exibir mensagens de acerto/erro
+        //Versão 5: Exibir a forca
 
         static void Main(string[] args)
         {
@@ -29,6 +29,81 @@
                     Console.Clear();
                     Console.WriteLine("------------------------------------------------");
                     Console.WriteLine("Jogo da Forca");
+                    Console.WriteLine("------------------------------------------------");
+
+                    if (quantidadeErros == 0)
+                    {
+                        Console.WriteLine("  ____________      ");
+                        Console.WriteLine("  |/         |      ");
+                        Console.WriteLine("  |                 ");
+                        Console.WriteLine("  |                 ");
+                        Console.WriteLine("  |                 ");
+                        Console.WriteLine("  |                 ");
+                        Console.WriteLine("  |                 ");
+                        Console.WriteLine(" _|____             ");
+                    }
+
+                    else if (quantidadeErros == 1)
+                    {
+                        Console.WriteLine("  ____________      ");
+                        Console.WriteLine("  |/         |      ");
+                        Console.WriteLine("  |          0      ");
+                        Console.WriteLine("  |                 ");
+                        Console.WriteLine("  |                 ");
+                        Console.WriteLine("  |                 ");
+                        Console.WriteLine("  |                 ");
+                        Console.WriteLine(" _|____             ");
+                    }
+
+                    else if (quantidadeErros == 2)
+                    {
+                        Console.WriteLine("  ____________      ");
+                        Console.WriteLine("  |/         |      ");
+                        Console.WriteLine("  |          0      ");
+                        Console.WriteLine("  |          |      ");
+                        Console.WriteLine("  |                ");
+                        Console.WriteLine("  |                 ");
+                        Console.WriteLine("  |                 ");
+                        Console.WriteLine(" _|____             ");
+                    }
+
+                    else if (quantidadeErros == 3)
+                    {
+                        Console.WriteLine("  ____________      ");
+                        Console.WriteLine("  |/         |      ");
+                        Console.WriteLine("  |          0      ");
+                        Console.WriteLine("  |          |      ");
+                        Console.WriteLine("  |          |     ");
+                        Console.WriteLine("  |                 ");
+                        Console.WriteLine("  |                 ");
+                        Console.WriteLine(" _|____             ");
+                    }
+
+                    else if (quantidadeErros == 4)
+                    {
+                        Console.WriteLine("  ____________      ");
+                        Console.WriteLine("  |/         |      ");
+                        Console.WriteLine("  |          0      ");
+                        Console.WriteLine("  |         /|\\    ");
+                        Console.WriteLine("  |          |      ");
+                        Console.WriteLine("  |                 ");
+                        Console.WriteLine("  |                 ");
+                        Console.WriteLine(" _|____             ");
+                    }
+
+                    else if (quantidadeErros == 5)
+                    {
+                        Console.WriteLine("  ____________      ");
+                        Console.WriteLine("  |/         |      ");
+                        Console.WriteLine("  |          0      ");
+                        Console.WriteLine("  |         /|\\    ");
+                        Console.WriteLine("  |          |      ");
+                        Console.WriteLine("  |         / \\    ");
+                        Console.WriteLine("  |        ------   ");
+                        Console.WriteLine(" _|____             ");
+                    }
+
+                    Console.WriteLine("\n");
                     Console.WriteLine("------------------------------------------------");
                     Console.WriteLine("Palavra Secreta: " + dicaDaPalavra);
                     Console.WriteLine("------------------------------------------------");
@@ -68,8 +143,21 @@
 
                     else if (jogadorEnforcou)
                     {
+                        Console.Clear();
+
                         Console.WriteLine("------------------------------------------------");
-                        Console.WriteLine("Que azar! Tente novamente...");
+                        Console.WriteLine("Jogo da Forca");
+                        Console.WriteLine("------------------------------------------------");
+                        Console.WriteLine("  ____________      ");
+                        Console.WriteLine("  |/         |      ");
+                        Console.WriteLine("  |          0      ");
+                        Console.WriteLine("  |                 ");
+                        Console.WriteLine("  |         /|\\    ");
+                        Console.WriteLine("  |          |      ");
+                        Console.WriteLine("  |         / \\    ");
+                        Console.WriteLine(" _|____             ");
+                        Console.WriteLine("\n");
+                        Console.WriteLine("Que azar! Você perdeu, tente novamente...");
                     }
                 }
                 while (jogadorAcertou == false || jogadorEnforcou == false);        // || = OU
