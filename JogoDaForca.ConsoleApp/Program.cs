@@ -2,13 +2,53 @@
 {
     internal class Program
     {
-        //Versão 5: Exibir a forca
+        //Versão 6: Gerar palavra aleatória
 
         static void Main(string[] args)
         {
+
+            string[] palavras =
+            {
+                "ABACATE",
+                "ABACAXI",
+                "ACEROLA",
+                "AÇAI",
+                "ARAÇA",
+                "ABACATE",
+                "BACABA",
+                "BACURI",
+                "BANANA",
+                "CAJA",
+                "CAJU",
+                "CARAMBOLA",
+                "CUPUAÇU",
+                "GRAVIOLA",
+                "GOIABA",
+                "JABUTICABA",
+                "JENIPAPO",
+                "MAÇA",
+                "MANGABA",
+                "MANGA",
+                "MARACUJA",
+                "MURICI",
+                "PEQUI",
+                "PITANGA",
+                "PITAYA",
+                "SAPOTI",
+                "TANGERINA",
+                "UMBU",
+                "UVA",
+                "UVAIA"
+            };
+
             while (true)
             {
-                string palavraSecreta = "MELANCIA";
+
+                Random geradorNumeros = new Random();
+
+                int indicePalavraEscolhida = geradorNumeros.Next(palavras.Length);
+
+                string palavraSecreta = palavras[indicePalavraEscolhida];
 
                 char[] letrasEncontradas = new char[palavraSecreta.Length];
 
@@ -24,7 +64,7 @@
 
                 do
                 {
-                    string dicaDaPalavra = String.Join(" ", letrasEncontradas);
+                    string dicaDaPalavra = String.Join("", letrasEncontradas);
 
                     Console.Clear();
                     Console.WriteLine("------------------------------------------------");
@@ -111,7 +151,7 @@
                     Console.WriteLine("------------------------------------------------");
 
                     Console.Write("Digite uma letra: ");
-                    char chute = Console.ReadLine()[0];        //Obtém apenas um caractere do que o usuário digita
+                    char chute = Console.ReadLine().ToUpper()[0];        //Obtém apenas um caractere do que o usuário digita
 
                     bool letraFoiEncontrada = false;
 
@@ -129,14 +169,34 @@
                     if (letraFoiEncontrada == false)
                         quantidadeErros++;
 
-                    dicaDaPalavra = String.Join (" ", letrasEncontradas);
+                    dicaDaPalavra = String.Join ("", letrasEncontradas);
 
-                    jogadorAcertou = dicaDaPalavra == palavraSecreta;
+                    if (dicaDaPalavra == palavraSecreta)
+                        jogadorAcertou = true;
 
-                    jogadorEnforcou = quantidadeErros > 5;
+                    else if (quantidadeErros > 5)
+                        jogadorEnforcou = true;
 
                     if (jogadorAcertou)
                     {
+                        Console.Clear();
+                        Console.WriteLine("------------------------------------------------");
+                        Console.WriteLine("Jogo da Forca");
+                        Console.WriteLine("------------------------------------------------");
+                        Console.WriteLine("  ____________                    ");
+                        Console.WriteLine("  |/         |                    ");
+                        Console.WriteLine("  |                               ");
+                        Console.WriteLine("  |                    vencemo!   ");
+                        Console.WriteLine("  |                  0´           ");
+                        Console.WriteLine("  |                 \\|/          ");
+                        Console.WriteLine("  |                  |            ");
+                        Console.WriteLine(" _|____             / \\          ");
+                        Console.WriteLine("\n");
+                        Console.WriteLine("------------------------------------------------");
+                        Console.WriteLine("Palavra Secreta: " + dicaDaPalavra);
+                        Console.WriteLine("------------------------------------------------");
+                        Console.WriteLine("Quantidade de Erros: " + quantidadeErros);
+                        Console.WriteLine("------------------------------------------------");
                         Console.WriteLine("------------------------------------------------");
                         Console.WriteLine("Parabéns você descobriu a palavra secreta!");
                     }
@@ -160,7 +220,7 @@
                         Console.WriteLine("Que azar! Você perdeu, tente novamente...");
                     }
                 }
-                while (jogadorAcertou == false || jogadorEnforcou == false);        // || = OU
+                while (jogadorAcertou == false && jogadorEnforcou == false);        // || = OU
 
                 Console.ReadLine();
             }
