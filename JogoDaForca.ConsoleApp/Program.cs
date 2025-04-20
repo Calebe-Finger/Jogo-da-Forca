@@ -4,6 +4,7 @@
     {
         //Versão 6: Gerar palavra aleatória
 
+        static string dicaDaPalavra = "";
         static void Main(string[] args)
         {
 
@@ -62,9 +63,11 @@
                 bool jogadorEnforcou = false;
                 bool jogadorAcertou = false;
 
-                do
+                while (jogadorAcertou == false && jogadorEnforcou == false)
                 {
                     string dicaDaPalavra = String.Join("", letrasEncontradas);
+
+
 
                     Console.Clear();
                     Console.WriteLine("------------------------------------------------");
@@ -172,55 +175,61 @@
                     dicaDaPalavra = String.Join ("", letrasEncontradas);
 
                     if (dicaDaPalavra == palavraSecreta)
-                        jogadorAcertou = true;
-
-                    else if (quantidadeErros > 5)
-                        jogadorEnforcou = true;
-
-                    if (jogadorAcertou)
                     {
-                        Console.Clear();
-                        Console.WriteLine("------------------------------------------------");
-                        Console.WriteLine("Jogo da Forca");
-                        Console.WriteLine("------------------------------------------------");
-                        Console.WriteLine("  ____________                    ");
-                        Console.WriteLine("  |/         |                    ");
-                        Console.WriteLine("  |                               ");
-                        Console.WriteLine("  |                    vencemo!   ");
-                        Console.WriteLine("  |                  0´           ");
-                        Console.WriteLine("  |                 \\|/          ");
-                        Console.WriteLine("  |                  |            ");
-                        Console.WriteLine(" _|____             / \\          ");
-                        Console.WriteLine("\n");
-                        Console.WriteLine("------------------------------------------------");
-                        Console.WriteLine("Palavra Secreta: " + dicaDaPalavra);
-                        Console.WriteLine("------------------------------------------------");
-                        Console.WriteLine("Quantidade de Erros: " + quantidadeErros);
-                        Console.WriteLine("------------------------------------------------");
-                        Console.WriteLine("------------------------------------------------");
-                        Console.WriteLine("Parabéns você descobriu a palavra secreta!");
+                        jogadorAcertou = true;
+                        continue;
                     }
 
-                    else if (jogadorEnforcou)
-                    {
-                        Console.Clear();
 
-                        Console.WriteLine("------------------------------------------------");
-                        Console.WriteLine("Jogo da Forca");
-                        Console.WriteLine("------------------------------------------------");
-                        Console.WriteLine("  ____________      ");
-                        Console.WriteLine("  |/         |      ");
-                        Console.WriteLine("  |          0      ");
-                        Console.WriteLine("  |                 ");
-                        Console.WriteLine("  |         /|\\    ");
-                        Console.WriteLine("  |          |      ");
-                        Console.WriteLine("  |         / \\    ");
-                        Console.WriteLine(" _|____             ");
-                        Console.WriteLine("\n");
-                        Console.WriteLine("Que azar! Você perdeu, tente novamente...");
+                    else if (quantidadeErros >= 5)
+                    {
+                        jogadorEnforcou = true;
+                        continue;
                     }
                 }
-                while (jogadorAcertou == false && jogadorEnforcou == false);        // || = OU
+
+                if (jogadorAcertou)
+                {
+                    Console.Clear();
+                    Console.WriteLine("------------------------------------------------");
+                    Console.WriteLine("Jogo da Forca");
+                    Console.WriteLine("------------------------------------------------");
+                    Console.WriteLine("  ____________                    ");
+                    Console.WriteLine("  |/         |                    ");
+                    Console.WriteLine("  |                               ");
+                    Console.WriteLine("  |                    vencemo!   ");
+                    Console.WriteLine("  |                  0´           ");
+                    Console.WriteLine("  |                 \\|/          ");
+                    Console.WriteLine("  |                  |            ");
+                    Console.WriteLine(" _|____             / \\          ");
+                    Console.WriteLine("\n");
+                    Console.WriteLine("------------------------------------------------");
+                    Console.WriteLine("Palavra Secreta: " + dicaDaPalavra);
+                    Console.WriteLine("------------------------------------------------");
+                    Console.WriteLine("Quantidade de Erros: " + quantidadeErros);
+                    Console.WriteLine("------------------------------------------------");
+                    Console.WriteLine("Parabéns você descobriu a palavra secreta!");
+                }
+
+                else if (jogadorEnforcou)
+                {
+                    Console.Clear();
+
+                    Console.WriteLine("------------------------------------------------");
+                    Console.WriteLine("Jogo da Forca");
+                    Console.WriteLine("------------------------------------------------");
+                    Console.WriteLine("  ____________      ");
+                    Console.WriteLine("  |/         |      ");
+                    Console.WriteLine("  |          0      ");
+                    Console.WriteLine("  |                 ");
+                    Console.WriteLine("  |         /|\\    ");
+                    Console.WriteLine("  |          |      ");
+                    Console.WriteLine("  |         / \\    ");
+                    Console.WriteLine(" _|____             ");
+                    Console.WriteLine("\n");
+                    Console.WriteLine("Que azar! Você perdeu, tente novamente...");
+                    Console.WriteLine("Palavra Secreta: " + palavraSecreta);
+                }
 
                 Console.ReadLine();
             }
