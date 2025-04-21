@@ -183,6 +183,7 @@
                 bool letraRepetida = false;
                 int contLetrasChutadas = 0;
                 char chute = '\0';
+                string stgChute = "";
                 bool letraFoiEncontrada = false;
                 string dicaDaPalavra = String.Join("", letrasEncontradas);
 
@@ -285,14 +286,26 @@
                     do
                     {
                         Console.WriteLine("\n--------------------------------------");
-                        Console.Write("Digite uma letra: ");
+                        Console.WriteLine("Digite uma letra: ");
+                        Console.WriteLine("1 - Chutar a palavra inteira ");
 
                         chute = Console.ReadLine().ToUpper()[0];        //Obtém apenas um caractere do que o usuário digita
 
+                        if (chute == 49)
+                        {
+                            Console.Write("Digite qual palavra você acha que é: ");
+                            stgChute = Console.ReadLine();
+
+                            if (stgChute.ToUpper() == palavraSecreta)
+                            {
+                                jogadorAcertou = true;
+                                continue;
+                            }
+                        }
 
                         for (int i = 0; i < letrasChutadas.Length; i++)
                         {
-                            if (letrasChutadas[i] == Convert.ToString(chute))
+                            if (letrasChutadas[i] == Convert.ToString(chute) && letrasChutadas[i] != "1")
                             {
                                 Console.WriteLine("Você já chutou essa letra, tente novamente: ");
                                 Console.ReadLine();
@@ -304,6 +317,12 @@
                     } while (letraRepetida == true);
 
                     letrasChutadas[contLetrasChutadas] = Convert.ToString(chute);
+
+                    if (letrasChutadas[contLetrasChutadas] == "1")
+                    {
+                        letrasChutadas[contLetrasChutadas] = "";
+                    }
+
                     contLetrasChutadas++;
 
                     letraFoiEncontrada = false;
