@@ -4,7 +4,7 @@
     {
         public class VerificarLetraEncontrada
         {
-            public void FazerVerificacao(string palavraSecreta, char chute, char[] letrasEncontradas, 
+            public int FazerVerificacao(string palavraSecreta, char chute, char[] letrasEncontradas,
                 bool letraFoiEncontrada, int quantidadeErros)
             {
                 for (int i = 0; i < palavraSecreta.Length; i++)
@@ -16,11 +16,12 @@
                         letrasEncontradas[i] = letraAtual;
                         letraFoiEncontrada = true;
                     }
-
-
-                    if (letraFoiEncontrada == false)
-                        quantidadeErros++;
                 }
+                if (letraFoiEncontrada == false)
+                    quantidadeErros++;
+
+                return quantidadeErros;
             }
         }
+    }
 }

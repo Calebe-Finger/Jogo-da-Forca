@@ -51,10 +51,10 @@ namespace JogoDaForca.ConsoleApp
                         chute = ChutarLetra();
 
                         ChutarPalavraInteira ChutPalaInt = new ChutarPalavraInteira();
-                        ChutPalaInt.UsuarioQuerChutar(chute, stgChute, palavraSecreta, jogadorAcertou);
+                        jogadorAcertou = ChutPalaInt.UsuarioQuerChutar(chute, stgChute, palavraSecreta);
 
                         VerificarLetrasChutadas VerfLetrChut = new VerificarLetrasChutadas();
-                        VerfLetrChut.Verficar(letrasChutadas, chute, letraRepetida);
+                        letraRepetida = VerfLetrChut.Verficar(letrasChutadas, chute);
 
                     } while (letraRepetida == true);
 
@@ -69,8 +69,8 @@ namespace JogoDaForca.ConsoleApp
                     letraFoiEncontrada = false;
 
                     VerificarLetraEncontrada VerfLetrEncont = new VerificarLetraEncontrada();
-                    VerfLetrEncont.FazerVerificacao(palavraSecreta, chute, letrasEncontradas, letraFoiEncontrada,
-                    quantidadeErros);
+                    quantidadeErros = VerfLetrEncont.FazerVerificacao(palavraSecreta, chute, 
+                        letrasEncontradas, letraFoiEncontrada, quantidadeErros);
 
                     dicaDaPalavra = String.Join("", letrasEncontradas);
 
@@ -87,7 +87,7 @@ namespace JogoDaForca.ConsoleApp
 
                     if (jogadorAcertou)
                     {
-                        ExibirVitoria(dicaDaPalavra, categoria, quantidadeErros);
+                        ExibirVitoria(palavraSecreta, categoria, quantidadeErros);
                     }
 
                     else if (jogadorEnforcou)
@@ -125,7 +125,7 @@ namespace JogoDaForca.ConsoleApp
             return chute;
         }
 
-        static void ExibirVitoria(string dicaDaPalavra, string categoria, int quantidadeErros)
+        static void ExibirVitoria(string palavraSecreta, string categoria, int quantidadeErros)
         {
             Console.Clear();
             Console.WriteLine("------------------------------------------------");
@@ -141,7 +141,7 @@ namespace JogoDaForca.ConsoleApp
             Console.WriteLine(" _|____             / \\          ");
             Console.WriteLine("\n");
             Console.WriteLine("------------------------------------------------");
-            Console.WriteLine("Palavra Secreta: " + dicaDaPalavra);
+            Console.WriteLine("Palavra Secreta: " + palavraSecreta);
             Console.WriteLine("------------------------------------------------");
             Console.WriteLine("Categoria: " + categoria);
             Console.WriteLine("------------------------------------------------");

@@ -7,7 +7,7 @@
             public string categoria = "";
 
             public string[] palavrasFrutas =
-            {
+            [
                 "ABACATE",
                 "ABACAXI",
                 "ACEROLA",
@@ -38,10 +38,10 @@
                 "UMBU",
                 "UVA",
                 "UVAIA"
-            };
+            ];
 
             public string[] palavrasPaises =
-            {
+            [
                 "ALEMANHA",
                 "ARGENTINA",
                 "AUSTRALIA",
@@ -64,10 +64,10 @@
                 "RUSSIA",
                 "TURQUIA",
                 "AFRICA DO SUL"
-            };
+            ];
 
             public string[] palavrasAnimais =
-            {
+            [
                 "ABELHA",
                 "BALEIA",
                 "BORBOLETA",
@@ -98,7 +98,7 @@
                 "URSO",
                 "VACA",
                 "ZEBRA"
-            };
+            ];
 
             public string[] RetornaPalavra(string categoria)
             {
