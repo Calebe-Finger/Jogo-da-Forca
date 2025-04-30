@@ -151,26 +151,30 @@ public class JogoDaForca
 
     }
 
-    public void EscolherPalavraSecreta()
+    public void DefinirPalavraSecreta()
     {
-        string[] frutas = [
+        string categoria = "";
+
+        string[] palavrasFrutas =
+        [
             "ABACATE",
             "ABACAXI",
             "ACEROLA",
-            "ACAI",
-            "ARACA",
+            "AÇAI",
+            "ARAÇA",
+            "ABACATE",
             "BACABA",
             "BACURI",
             "BANANA",
             "CAJA",
             "CAJU",
             "CARAMBOLA",
-            "CUPUACU",
+            "CUPUAÇU",
             "GRAVIOLA",
             "GOIABA",
             "JABUTICABA",
             "JENIPAPO",
-            "MACA",
+            "MAÇA",
             "MANGABA",
             "MANGA",
             "MARACUJA",
@@ -185,11 +189,89 @@ public class JogoDaForca
             "UVAIA"
         ];
 
-        Random geradorDeNumeros = new Random();
+        string[] palavrasPaises =
+        [
+            "ALEMANHA",
+            "ARGENTINA",
+            "AUSTRALIA",
+            "BRASIL",
+            "CANADA",
+            "CHINA",
+            "COREIA DO SUL",
+            "EGITO",
+            "ESPANHA",
+            "ESTADOS UNIDOS",
+            "FRANÇA",
+            "INDIA",
+            "INDONESIA",
+            "ITALIA",
+            "JAPAO",
+            "MEXICO",
+            "NIGERIA",
+            "PAQUISTAO",
+            "REINO UNIDO",
+            "RUSSIA",
+            "TURQUIA",
+            "AFRICA DO SUL"
+        ];
 
-        int indicePalavraEscolhida = geradorDeNumeros.Next(frutas.Length);
+        string[] palavrasAnimais =
+        [
+            "ABELHA",
+            "BALEIA",
+            "BORBOLETA",
+            "CACHORRO",
+            "CAVALO",
+            "COELHO",
+            "COBRA",
+            "ELEFANTE",
+            "FORMIGA",
+            "GALINHA",
+            "GATO",
+            "GIRAFA",
+            "GOLFINHO",
+            "HAMSTER",
+            "JACARE",
+            "LEAO",
+            "MACACO",
+            "OVELHA",
+            "PANDA",
+            "PASSARINHO",
+            "PATO",
+            "PEIXE",
+            "PERU",
+            "PORCO",
+            "RATO",
+            "TARTARUGA",
+            "TIGRE",
+            "URSO",
+            "VACA",
+            "ZEBRA"
+        ];
 
-        palavraSecreta = frutas[indicePalavraEscolhida];
+        if (Convert.ToInt32(categoria) == 1)
+        {
+            categoria = "frutas";
+
+            palavraSecreta = palavrasFrutas[i];
+            
+        }
+
+        else if (Convert.ToInt32(categoria) == 2)
+        {
+            categoria = "países";
+
+            palavraSecreta = palavrasPaises[i];
+        }
+
+
+
+        else if (Convert.ToInt32(categoria) == 3)
+        {
+            categoria = "animais";
+
+            palavraSecreta = palavrasAnimais[i];
+        }
     }
 
     public void PreencherLetrasEncontradas()

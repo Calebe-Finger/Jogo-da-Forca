@@ -12,7 +12,7 @@ namespace JogoDaForca.ConsoleApp
 
             while (true)
             {
-                jogo.EscolherPalavraSecreta();
+                jogo.DefinirPalavraSecreta();
                 jogo.PreencherLetrasEncontradas();
 
                 while (true)
