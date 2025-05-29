@@ -1,22 +1,22 @@
-# JogoDaForca
+# Jogo da Forca
 
 ![](https://imgur.com/3jFQx7P.gif)
 
-## Introdução 
+## IntroduÃ§Ã£o 
 
-Trata-se de um jogo em que a máquina escolhe uma palavra aleatória dentre
-algumas pré-determinadas e o usuário deve acertar qual a palavra chutando
+Trata-se de um jogo em que a mÃ¡quina escolhe uma palavra aleatÃ³ria dentre
+algumas prÃ©-determinadas e o usuÃ¡rio deve acertar qual a palavra chutando
 letras. 
 
-## Funcionaçidades
+## Funcionalidades
 
-- **Escolha de categoria da palavra:** frutas, países e animais
+- **Escolha de categoria da palavra:** frutas, paÃ­ses e animais
 
-- Exibe o número de tentativas utilizadas e o número restante.
-- Armazena e exibe as letras já chutadas pelo usuário
-- Não possibilita o usuário inserir a mesma letra mais de uma vez.
-- Exibe a "situação" do usuário na forca dependendo do número de erros.
-- Possibilita o usuário jogar várias vezes seguidas.
+- Exibe o nÃºmero de tentativas utilizadas e o nÃºmero restante.
+- Armazena e exibe as letras jÃ¡ chutadas pelo usuÃ¡rio
+- NÃ£o possibilita o usuÃ¡rio inserir a mesma letra mais de uma vez.
+- Exibe a "situaÃ§Ã£o" do usuÃ¡rio na forca dependendo do nÃºmero de erros.
+- Possibilita o usuÃ¡rio jogar vÃ¡rias vezes seguidas.
 
 ## Tecnologias
 
